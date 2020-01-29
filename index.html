@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Money control</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script src="https://kit.fontawesome.com/b9f59df0ee.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Money control</h1>
+		<div class="total-money">
+			<div class="cash">
+				<i class="fas fa-money-bill-alt"></i>
+				<span></span>
+			</div>
+			<div class="non-cash">
+				<i class="fas fa-credit-card"></i>
+				<span></span>
+			</div>
+		</div>
+	</header>
+
+	<div class="main">
+		<div class="controls">
+			<div class="add btn">
+				<i class="fas fa-plus"></i>
+			</div>
+
+			<div class="remove-all btn">
+				<i class="fas fa-trash-alt"></i>
+			</div>
+		</div>
+
+		<div class="content">
+			<ul></ul>
+		</div>
+	</div>
+
+
+	<div class="add-popup">
+		<form>
+			<div class="count">
+				<input type="radio" name="result" value="add" id="addRadio" checked>
+				<label for="addRadio">
+					<i class="fas fa-plus"></i>
+				</label>
+				<input type="radio" name="result" value="sub" id="subRadio">
+				<label for="subRadio">
+					<i class="fas fa-minus"></i>
+				</label>
+
+				<input type="number" name="addMoney" placeholder="Money count">
+			</div>
+
+			<select name="type">
+				<option value="cash">Cash</option>
+				<option value="nonCash">Non-cash</option>
+			</select>
+
+			<input type="submit" name="submit" value="submit">
+		</form>
+	</div>
+	
+	<script type="text/javascript" src="script/function.js"></script>
+	<script type="text/javascript" src="script/handlers.js"></script>
+	<script type="text/javascript" src="script/script.js"></script>
+</body>
+</html>
