@@ -1,7 +1,13 @@
 function openAddPopup() {
-	addPopup.style.display = 'block';
+	addPopup.style.zIndex = '10';
+	addPopup.style.opacity = '1';
 	addPopupForm.addMoney.value = '';
 	addPopupForm.addMoney.focus();
+}
+
+function openDelPopup() {
+	delPopup.style.zIndex = '10';
+	delPopup.style.opacity = '1';
 }
 
 function clearStorage() {
@@ -10,7 +16,13 @@ function clearStorage() {
 	localStorage.cash = 0;
 	localStorage.nonCash = 0;
 	cash = 0;
-	nonCash = 0;
+	nonCash = 0;	
+	closeDelPopup();
+}
+
+function closeDelPopup() {
+	delPopup.style.zIndex = '-10';
+	delPopup.style.opacity = '0';
 }
 
 function createItem(event) {
@@ -27,5 +39,15 @@ function createItem(event) {
 	localStorage.setItem(Date.now(), JSON.stringify(obj));
 
 	refreshList();
-	addPopup.style.display = 'none';
+	addPopup.style.zIndex = '-10';
+	addPopup.style.opacity = '0';
+}
+
+function closePopup(event) {
+	if (event.target == addPopup) {
+		addPopup.style.zIndex = '-10';
+		addPopup.style.opacity = '0';
+	} else if (event.target == delPopup) {
+		closeDelPopup();
+	}
 }

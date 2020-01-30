@@ -5,6 +5,7 @@ function refreshList() {
 		list.removeChild(list.firstChild);
 	}
 
+	keyArr.length = 0;
 	for (let i = 0; i < localStorage.length; i++) {
 		if (localStorage.key(i) == 'cash' || localStorage.key(i) == 'nonCash') {
 			continue;
@@ -13,15 +14,10 @@ function refreshList() {
 	}
 
 	keyArr.sort(function(a, b) {
-		return a - b;
+		return b - a;
 	});
-
 	for (let i = 0; i < keyArr.length; i++) {
 		if (!localStorage.hasOwnProperty(keyArr[i])) {
-			continue;
-		}
-
-		if (localStorage.key(i) == 'cash' || localStorage.key(i) == 'nonCash') {
 			continue;
 		}
 
