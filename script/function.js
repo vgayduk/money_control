@@ -28,6 +28,15 @@ function refreshList() {
 		let dateBlock = document.createElement('span');
 		let typeBlock = document.createElement('i');
 		let operationBlock = document.createElement('i');
+		let tag = cashObj.tag;
+		let tagBlock;
+
+		for (let i = 0; i < tags.length; i++) {
+			if (tags[i].name != tag) continue;
+			tagBlock = tags[i].element.cloneNode(true);
+			tagBlock.classList.remove('active');
+			tagBlock.classList.add('tag-ico');
+		}
 
 		liElement.setAttribute('data-key', `${keyArr[i]}`)
 
@@ -36,8 +45,10 @@ function refreshList() {
 
 		if (cashObj.operation == 'add') {
 			operationBlock.classList.add('fas', 'fa-plus');
+			operationBlock.style = 'color: #57a825';
 		} else {
 			operationBlock.classList.add('fas', 'fa-minus');
+			operationBlock.style = 'color: #d9141c';
 		}
 
 		if (cashObj.type == 'cash') {
@@ -46,7 +57,7 @@ function refreshList() {
 			typeBlock.classList.add('fas', 'fa-credit-card');
 		};
 
-		dateBlock.innerText = cashObj.day + '.' + cashObj.year;
+		dateBlock.innerText = cashObj.day + '.' + cashObj.month + '.' + cashObj.year;
 		countBlock.innerText = cashObj.count;
 
 		list.appendChild(liElement);
@@ -54,6 +65,7 @@ function refreshList() {
 		liElement.appendChild(typeBlock);
 		liElement.appendChild(operationBlock);
 		liElement.appendChild(countBlock);
+		if (tagBlock) liElement.appendChild(tagBlock);
 
 		if (cashObj.operation == 'add' && cashObj.type == 'cash') {
 			cashCount += +cashObj.count;
@@ -71,4 +83,10 @@ function refreshList() {
 	
 	cash.innerText = localStorage.cash;
 	nonCash.innerText = localStorage.nonCash;
+}
+
+function resetTags() {
+	tags.forEach((elem) => {
+		elem.element.classList.remove('active')
+	});
 }

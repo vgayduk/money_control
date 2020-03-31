@@ -148,7 +148,7 @@ li .fa-minus {
 }
 
 .add-popup {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -175,8 +175,10 @@ li .fa-minus {
 	min-height: 300px;
 	border-radius: 20px;
 	padding: 50px;
+	padding-top: 80px;
 	color: black;
 	font-size: 1.8rem;
+	transition: all 0.5s ease-out;
 }
 
 .add-popup form input[type=radio] {
@@ -184,27 +186,49 @@ li .fa-minus {
 }
 
 #addRadio + label {
-	color: #888;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 35px;
+	background: #888;
+	color: #aaa;
 	transition: all 0.1s ease;
 	margin-left: -65px;
 	font-size: 2.5rem;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top-right-radius: 20px;
 }
 
 #subRadio + label {
-	color: #888;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 35px;
+	background: #888;
+	color: #aaa;
 	transition: all 0.1s ease;
 	margin-right: 10px;
 	font-size: 2.5rem;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top-left-radius: 20px;
 }
 
 #addRadio:checked + label {
-	color: #57a825;
+	background: #57a825;
+	color: white;
 }
 
 #subRadio:checked + label {
-	color: #d9141c;
+	background: #d9141c;
+	color: white;
 }
 
 .add-popup input[type=number] {
@@ -244,7 +268,7 @@ input[type=number]::-webkit-outer-spin-button {
 	padding: 10px;
 	border: none;
 	background: #57a825;
-	border-radius: 10px;
+	border-radius: 5px;
 	color: white;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -255,13 +279,130 @@ input[type=number]::-webkit-outer-spin-button {
 	box-shadow: 0 0 10px 5px #ccc;
 }
 
+.add-popup .btn {
+	color: white;
+	background: #e39439;
+	box-shadow: 0 0 10px 5px #ccc;
+	margin-top: 30px;
+}
+
 .add-popup input[type=submit]:hover {
 	transform: scale(0.9);
 }
 
+.tag-menu {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: white;
+	flex-wrap: wrap;
+	width: 330px;
+	margin-top: 30px;
+	height: 140px;
+	opacity: 0;
+	overflow: hidden;
+	transition: all 0.5s;
+}
+
+.tag-menu.not-active {
+	height: 0;
+	margin-top: 0;
+}
+
+.tag {
+	width: 80px;
+	height: 70px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	cursor: pointer;
+}
+
+.tag div {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s ease-out;
+	box-shadow: 0 0 8px 3px #ccc;
+}
+
+.tag:not(.tag-ico) div:hover {
+	transform: scale(0.9);
+	box-shadow: none;
+}
+
+.tag p {
+	color: black;
+	font-size: 1.2rem;
+}
+
+.tag:nth-of-type(1) div {
+	background: #e0b802;
+}
+
+.tag:nth-of-type(2) div {
+	background: #b740c7;
+}
+
+.tag:nth-of-type(3) div {
+	background: #404dc7;
+}
+
+.tag:nth-of-type(4) div {
+	background: #d62951;
+}
+
+.tag:nth-of-type(5) div {
+	background: #2dc5e3;
+}
+
+.tag:nth-of-type(6) div {
+	background: #e3762d;
+}
+
+.tag:nth-of-type(7) div {
+	background: #41cc29;
+}
+
+.tag:nth-of-type(8) div {
+	background: #1a3678;
+}
+
+.tag.active div {
+	transform: scale(0.9);
+	box-shadow: none;
+	border: 3px solid red;
+}
+
+.tag.tag-ico div {
+	box-shadow: none;
+	margin: 0 auto;
+	width: 33px;
+	height: 33px;
+	font-size: 1.8rem;
+	background: none;
+}
+
+.tag.tag-ico {
+	display: inline-block;
+	height: 40px;
+	position: absolute;
+	right: 40px;
+	cursor: auto;
+	bottom: -2px;
+}
+
+.tag.tag-ico p {
+	display: none;
+}
+
 .del-popup {
 	background: rgba(25, 25, 25, 0.9);
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -271,7 +412,7 @@ input[type=number]::-webkit-outer-spin-button {
 	z-index: -10;
 }
 
-.del-popup > div {
+.del-popup > div:not(.close) {
 	width: 400px;
 	min-height: 200px;
 	background: white;
@@ -287,6 +428,7 @@ input[type=number]::-webkit-outer-spin-button {
 	border-radius: 20px;
 	padding: 20px;
 	color: black;
+	position: relative;
 }
 
 .del-popup p {
@@ -372,6 +514,29 @@ input[type=number]::-webkit-outer-spin-button {
 	left: 25px;
 	right: 25px;
 	animation: rotate 1s infinite linear;
+}
+
+.close {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	background: white;
+	color: #d9141c;
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0 2px 2px #ccc;
+	cursor: pointer;
+	z-index: 10;
+	transition: all 0.2s ease;
+}
+
+.close:hover {
+	transform: scale(0.9);
+	box-shadow: none;
 }
 
 @keyframes rotate {

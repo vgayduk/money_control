@@ -31,6 +31,14 @@
 			<div class="remove-all btn">
 				<i class="fas fa-trash-alt"></i>
 			</div>
+
+			<div class="refresh btn">
+				<i class="fas fa-sync-alt"></i>
+			</div>
+
+			<div class="filter btn">
+				<i class="fas fa-filter"></i>
+			</div>
 		</div>
 
 		<div class="content">
@@ -41,6 +49,7 @@
 
 	<div class="add-popup">
 		<form>
+			<div class="close"><i class="fas fa-times"></i></div>
 			<div class="count">
 				<input type="radio" name="result" value="add" id="addRadio" checked>
 				<label for="addRadio">
@@ -56,15 +65,75 @@
 
 			<select name="type">
 				<option value="cash">Cash</option>
-				<option value="nonCash">Non-cash</option>
+				<option value="nonCash">Card</option>
 			</select>
 
+			<div class="tag-menu not-active">
+				<div class="tag">
+					<div>
+						<i class="fas fa-bus-alt"></i>
+					</div>
+					<p>Transport</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fas fa-utensils"></i>
+					</div>
+					<p>Restaurant</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fas fa-user-graduate"></i>
+					</div>
+					<p>Education</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fab fa-youtube"></i>
+					</div>
+					<p>Leisure</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fas fa-shopping-basket"></i>
+					</div>
+					<p>Groceries</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fas fa-shopping-bag"></i>
+					</div>
+					<p>Shopping</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fas fa-briefcase-medical"></i>
+					</div>
+					<p>Health</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fab fa-ethereum"></i>
+					</div>
+					<p>Other</p>
+				</div>
+			</div>
+
 			<input type="submit" name="submit" value="submit">
+
 		</form>
 	</div>
 
 	<div class="del-popup">
 		<div>
+			<div class="close"><i class="fas fa-times"></i></div>
 			<p>Do you really want to clear all your cash history?</p>
 			<div class="buttons">
 				<div class="yes btn">
