@@ -168,13 +168,12 @@ li .fa-minus {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	display: flex;
-	flex-wrap: wrap;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	min-height: 300px;
 	border-radius: 20px;
-	padding: 50px;
+	padding: 50px 0;
 	padding-top: 80px;
 	color: black;
 	font-size: 1.8rem;
@@ -568,6 +567,19 @@ input[type=number]::-webkit-outer-spin-button {
 	.add-popup form {
 		width: 360px;
 	}
+
+	.tag-menu {
+		width: 250px;
+		height: 210px;
+	}
+
+	.tag:nth-of-type(2) {
+		margin-bottom: -60px;
+	}
+
+	.tag:nth-of-type(5) {
+		margin-bottom: -60px;
+	}
 }
 
 @media(max-width: 460px) {
@@ -579,9 +591,16 @@ input[type=number]::-webkit-outer-spin-button {
 		width: 270px;
 	}
 
+	.count {
+		margin-top: 30px;
+	}
+
+	.tag-menu {
+		margin-top: 10px;
+	}
+
 	.add-popup form {
-		height: 200px;
-		min-height: 0;
+		height: auto;
 		width: 290px;
 		padding: 20px;
 	}
@@ -592,10 +611,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 	.add-popup form select {
 		width: 120px;
-		margin-top: 20px;
+		margin-top: 10px;
 	}
 
 	.add-popup input[type=submit] {
-		margin-top: 20px;
+		margin-top: 10px;
 	}
 }

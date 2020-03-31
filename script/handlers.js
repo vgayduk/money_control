@@ -75,6 +75,6 @@ function subLabelActive() {
 
 function addLabelActive() {
 	tagMenu.style.opacity = 0
-	setTimeout(() => {tagMenu.classList.add('not-active');}, 300);
+	setTimeout(() => {tagMenu.classList.add('not-active')}, 300);
 	resetTags()
 }
