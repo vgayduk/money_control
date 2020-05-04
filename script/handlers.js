@@ -53,6 +53,17 @@ function createItem(event) {
 function closeAddPopup() {
 	addPopup.style.zIndex = '-10';
 	addPopup.style.opacity = '0';
+	resetTags();
+}
+
+function openFilterPopup() {
+	filterPopup.style.zIndex = '10';
+	filterPopup.style.opacity = '1';
+}
+
+function closeFilterPopup() {
+	filterPopup.style.zIndex = '-10';
+	filterPopup.style.opacity = '0';
 }
 
 function closePopup(event) {
@@ -60,6 +71,8 @@ function closePopup(event) {
 		closeAddPopup();
 	} else if (event.target == delPopup) {
 		closeDelPopup();
+	} else if (event.target == filterPopup) {
+		closeFilterPopup();
 	}
 }
 
@@ -76,5 +89,50 @@ function subLabelActive() {
 function addLabelActive() {
 	tagMenu.style.opacity = 0
 	setTimeout(() => {tagMenu.classList.add('not-active')}, 300);
-	resetTags()
+	resetTags();
+}
+
+function filterSubLabelActive() {
+	filterTagMenu.classList.remove('not-active');
+	setTimeout(() => {filterTagMenu.style.opacity = 1}, 300);
+}
+
+function filterAddLabelActive() {
+	filterTagMenu.style.opacity = 0
+	setTimeout(() => {filterTagMenu.classList.add('not-active')}, 300);
+	resetTags();
+}
+
+function createFilter(event) {
+	event.preventDefault();
+	let tag = '';
+	tags.forEach((elem, i) => {
+		if (elem.element.classList.contains('active')) {
+			tag = elem.name;
+		}
+	});
+	let filterObj = {
+		day: this.day.value,
+		month: this.month.value,
+		year: this.year.value,
+		type: this.type.value,
+		moneyFrom: this.from.value,
+		moneyTill: this.till.value,
+		tag: tag,
+		operation: this.result.value
+	}
+	resetTags();
+	filterData(filterObj);
+	closeFilterPopup();
+}
+
+function resetFilter() {
+	filterPopupForm.day.value = '';
+	filterPopupForm.month.value = '';
+	filterPopupForm.year.value = '';
+	filterPopupForm.from.value = '';
+	filterPopupForm.till.value = '';
+	filterPopupForm.type.value = 'all';
+	filterPopupForm.result.value = 'add';
+	resetTags();
 }

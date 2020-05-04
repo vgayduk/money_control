@@ -153,7 +153,6 @@ li .fa-minus {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: transparent;
 	transition: all 0.3s ease;
 	opacity: 0;
 	z-index: -10;
@@ -230,7 +229,7 @@ li .fa-minus {
 	color: white;
 }
 
-.add-popup input[type=number] {
+input[type=number] {
 	width: 200px;
 	font-size: 2rem;
 	padding: 5px;
@@ -250,7 +249,7 @@ input[type=number]::-webkit-outer-spin-button {
 	color: #ccc;
 }
 
-.add-popup form select {
+form select {
 	padding: 5px;
 	width: 200px;
 	font-size: 1.8rem;
@@ -262,7 +261,7 @@ input[type=number]::-webkit-outer-spin-button {
 	cursor: pointer;
 }
 
-.add-popup input[type=submit] {
+input[type=submit] {
 	width: fit-content;
 	padding: 10px;
 	border: none;
@@ -285,7 +284,7 @@ input[type=number]::-webkit-outer-spin-button {
 	margin-top: 30px;
 }
 
-.add-popup input[type=submit]:hover {
+input[type=submit]:hover {
 	transform: scale(0.9);
 }
 
@@ -460,6 +459,119 @@ input[type=number]::-webkit-outer-spin-button {
 
 .del-popup .no {
 	background: #d9141c;
+}
+
+.filter-popup {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transition: all 0.3s ease;
+	opacity: 0;
+	z-index: -10;
+	background: rgba(25, 25, 25, 0.9);
+}
+
+.filter-popup .tag-menu {
+	opacity: 1;
+}
+
+.filter-popup form {
+	background: white;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 30px 0;
+    color: black;
+    font-size: 1.8rem;
+    transition: all 0.5s ease-out;
+}
+.filter-popup form > p {
+	margin-bottom: 20px;
+	font-size: 2rem;
+}
+
+.filter-popup input[name="day"],
+.filter-popup input[name="month"] {
+	width: 70px;
+	text-align: center;
+	margin-right: 10px;
+}
+
+.filter-popup input[name="year"] {
+	width: 100px;
+	text-align: center;
+}
+
+.filter-popup input::placeholder {
+	font-size: 1.8rem;
+}
+
+.filter-popup form select {
+    width: 275px;
+    margin-top: 20px;
+}
+
+.filter-popup .count-range {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.filter-popup .count-range input {
+	margin-top: 10px;
+}
+
+.filter-popup .tag-menu {
+	margin-top: 20px;
+}
+
+.filter-popup .btn-container {
+	display: flex;
+	justify-content: space-between;
+	width: 180px;
+}
+
+.filter-popup input[type="radio"] {
+	display: none;
+}
+
+#addFilterRadio:checked + label i {
+    color: #57a825;
+}
+
+#subFilterRadio:checked + label i {
+    color: #d9141c;
+}
+
+.filter-popup label i {
+	font-size: 3rem;
+	margin-top: 10px;
+}
+
+.filter-popup .btn {
+	width: fit-content;
+    padding: 10px;
+    border: none;
+    background: #d9141c;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px #ccc;
 }
 
 .preloader {

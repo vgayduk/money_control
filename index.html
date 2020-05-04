@@ -146,6 +146,104 @@
 		</div>
 	</div>
 
+	<div class="filter-popup">
+		<form>
+			<div class="close"><i class="fas fa-times"></i></div>
+			<p>Add some filters</p>
+			<div class="date-filter">
+				<input type="number" name="day" placeholder="Day">
+				<input type="number" name="month" placeholder="Month">
+				<input type="number" name="year" placeholder="Year">
+			</div>
+
+			<select name="type">
+				<option value="all">All</option>
+				<option value="cash">Cash</option>
+				<option value="nonCash">Card</option>
+			</select>
+
+			<div class="count-range">
+				<p>Enter range of money</p>
+				<input type="number" name="from" placeholder="from">
+				<input type="number" name="till" placeholder="till">
+				<div>
+					<input type="radio" name="result" value="add" id="addFilterRadio" checked>
+					<label for="addFilterRadio">
+						<i class="fas fa-plus"></i>
+					</label>
+
+					<input type="radio" name="result" value="sub" id="subFilterRadio">
+					<label for="subFilterRadio">
+						<i class="fas fa-minus"></i>
+					</label>
+				</div>
+			</div>
+
+			<div class="tag-menu not-active">
+				<div class="tag">
+					<div>
+						<i class="fas fa-bus-alt"></i>
+					</div>
+					<p>Transport</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fas fa-utensils"></i>
+					</div>
+					<p>Restaurant</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fas fa-user-graduate"></i>
+					</div>
+					<p>Education</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fab fa-youtube"></i>
+					</div>
+					<p>Leisure</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fas fa-shopping-basket"></i>
+					</div>
+					<p>Groceries</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fas fa-shopping-bag"></i>
+					</div>
+					<p>Shopping</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fas fa-briefcase-medical"></i>
+					</div>
+					<p>Health</p>
+				</div>
+
+				<div class="tag">
+					<div>
+						<i class="fab fa-ethereum"></i>
+					</div>
+					<p>Other</p>
+				</div>
+			</div>
+			
+			<div class="btn-container">
+				<input type="submit" name="acceptFilters">
+				<div class="btn reset">Reset</div>
+			</div>
+		</form>
+	</div>
+
 	<div class="preloader">
 		<div></div>
 	</div>
