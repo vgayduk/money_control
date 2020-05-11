@@ -371,7 +371,7 @@ input[type=submit]:hover {
 }
 
 .tag.active div {
-	transform: scale(0.9);
+	/*transform: scale(0.9);*/
 	box-shadow: none;
 	border: 3px solid red;
 }
@@ -516,7 +516,7 @@ input[type=submit]:hover {
 }
 
 .filter-popup form select {
-    width: 275px;
+    width: 270px;
     margin-top: 20px;
 }
 
@@ -699,7 +699,7 @@ input[type=submit]:hover {
 		font-size: 9px;
 	}
 
-	.del-popup > div {
+	.del-popup > div:not(.close) {
 		width: 270px;
 	}
 
@@ -728,5 +728,9 @@ input[type=submit]:hover {
 
 	.add-popup input[type=submit] {
 		margin-top: 10px;
+	}
+
+	.filter-popup form {
+		width: 320px;
 	}
 }

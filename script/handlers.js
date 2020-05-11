@@ -77,8 +77,26 @@ function closePopup(event) {
 }
 
 function selectTag() {
-	resetTags()
-	this.classList.add('active');
+	let isActive;
+	if (this.classList.contains('active')) {
+		isActive = true;
+	} else {
+		isActive = false;
+	}
+	resetTags();
+	if (isActive) {
+		this.classList.remove('active')
+	} else {
+		this.classList.add('active')
+	}
+}
+
+function selectFilterTag() {
+	if (this.classList.contains('active')) {
+		this.classList.remove('active')
+	} else {
+		this.classList.add('active')
+	}
 }
 
 function subLabelActive() {
@@ -105,10 +123,10 @@ function filterAddLabelActive() {
 
 function createFilter(event) {
 	event.preventDefault();
-	let tag = '';
+	let tag = [];
 	tags.forEach((elem, i) => {
 		if (elem.element.classList.contains('active')) {
-			tag = elem.name;
+			tag.push(elem.name);
 		}
 	});
 	let filterObj = {
@@ -135,4 +153,6 @@ function resetFilter() {
 	filterPopupForm.type.value = 'all';
 	filterPopupForm.result.value = 'add';
 	resetTags();
+	filterTagMenu.style.opacity = 0
+	setTimeout(() => {filterTagMenu.classList.add('not-active')}, 300);
 }

@@ -102,6 +102,7 @@ function filterData(filterObj) {
 		return b - a;
 	});
 	for (let i = 0; i < keyArr.length; i++) {
+		let haveTags = false;
 		if (!localStorage.hasOwnProperty(keyArr[i])) {
 			continue;
 		}
@@ -112,7 +113,13 @@ function filterData(filterObj) {
 		if (+filterObj.month !== cashObj.month && filterObj.month !== '') continue;
 		if (+filterObj.year !== cashObj.year && filterObj.year !== '') continue;
 		if (filterObj.type !== cashObj.type && filterObj.type !== 'all') continue;
-		if (filterObj.tag !== cashObj.tag && filterObj.tag !== '') continue;
+		for (let j = 0; j < filterObj.tag.length; j++) {
+			if (filterObj.tag[j] !== cashObj.tag && filterObj.tag[j] !== '') {
+				continue;
+			}
+			haveTags = true;	
+		}
+		if (!haveTags) continue;
 		if (filterObj.operation !== cashObj.operation) continue;
 		if (filterObj.moneyFrom !== '' && filterObj.moneyTill !== '') {
 			if (+cashObj.count > +filterObj.moneyTill || +cashObj.count < +filterObj.moneyFrom) continue;

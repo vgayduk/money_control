@@ -52,7 +52,11 @@ let filterAddLabel = filterPopupForm.querySelector('label[for="addFilterRadio"]'
 let keyArr = [];
 
 tags.forEach((elem, i) => {
-	elem.element.addEventListener('click', selectTag);
+	if (elem.element.parentElement.parentElement.parentElement.classList.contains('add-popup')) {
+		elem.element.addEventListener('click', selectTag);
+	} else {
+		elem.element.addEventListener('click', selectFilterTag);
+	}
 });
 
 addLabel.addEventListener('click', addLabelActive);
