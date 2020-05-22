@@ -4,8 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Money control</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="theme-color" content="#242424">
 	<script src="https://kit.fontawesome.com/b9f59df0ee.js"></script>
 	<link rel="stylesheet" href="style.css">
+	<link rel="manifest" href="manifest.json">
 </head>
 <body>
 	<header>
@@ -248,6 +250,24 @@
 		<div></div>
 	</div>
 	
+	<script>
+       if ('serviceWorker' in navigator) {
+           window.addEventListener('load', function() {
+               navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                   // Registration was successful
+               console.log('ServiceWorker registration successful with scope: ', registration.scope);
+             }, function(err) {
+               // registration failed :(
+               console.log('ServiceWorker registration failed: ', err);
+             }).catch(function(err) {
+               console.log(err)
+             });
+           });
+         } else {
+           console.log('service worker is not supported');
+         }
+   </script>
+
 	<script type="text/javascript" src="script/function.js"></script>
 	<script type="text/javascript" src="script/handlers.js"></script>
 	<script type="text/javascript" src="script/script.js"></script>
